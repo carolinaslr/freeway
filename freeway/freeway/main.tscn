@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://djwhevrl3xoco"]
+
+[ext_resource type="Script" uid="uid://b3pvaixpb2ytp" path="res://main.gd" id="1_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cc0j5tvn645p5" path="res://Material freeway/wallpaperfreeway.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dnalvj6jqhu8d" path="res://player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b1l6v6wikn712" path="res://linha_chegada.tscn" id="3_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://bwbpnbv6u46n3" path="res://Material freeway/sons/tema.wav" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://c8gp3f5nrurvy" path="res://hud.tscn" id="6_5vw27"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_7mycd")
+
+[node name="Pista" type="Sprite2D" parent="."]
+texture = ExtResource("1_ig7tw")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(640, 690)
+
+[node name="LinhaChegada" parent="." instance=ExtResource("3_1bvp3")]
+
+[node name="TimerCarrosRapido" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="TimerCarrosLento" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="AudioTema" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_272bh")
+
+[node name="AudioPonto" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioVitoria" type="AudioStreamPlayer2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("6_5vw27")]
+
+[connection signal="pontua" from="Player" to="." method="_on_player_pontua"]
+[connection signal="timeout" from="TimerCarrosRapido" to="." method="_on_timer_carros_rapido_timeout"]
+[connection signal="timeout" from="TimerCarrosLento" to="." method="_on_timer_carros_lento_timeout"]
+[connection signal="reinicia" from="HUD" to="." method="_on_hud_reinicia"]

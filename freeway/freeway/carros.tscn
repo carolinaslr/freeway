@@ -1,0 +1,146 @@
+[gd_scene load_steps=17 format=3 uid="uid://hbgr2hlcjgxa"]
+
+[ext_resource type="Script" uid="uid://b1tmc3ks04nma" path="res://carros.gd" id="1_ow73l"]
+[ext_resource type="Texture2D" uid="uid://j4i504tp2b2o" path="res://Material freeway/carros/coches (1).png" id="2_hj0pe"]
+[ext_resource type="Texture2D" uid="uid://b118g1c1j0lj1" path="res://Material freeway/carros/coches (2).png" id="3_545rc"]
+[ext_resource type="Texture2D" uid="uid://qg5frah2y2ot" path="res://Material freeway/carros/coches (3).png" id="4_xh5i4"]
+[ext_resource type="Texture2D" uid="uid://bvryj07gyngye" path="res://Material freeway/carros/coches (4).png" id="5_awi5y"]
+[ext_resource type="Texture2D" uid="uid://dm4y0yh4187em" path="res://Material freeway/carros/coches (5).png" id="6_ss4pm"]
+[ext_resource type="Texture2D" uid="uid://by0bjcgcb23o1" path="res://Material freeway/carros/coches (6).png" id="7_w17nw"]
+[ext_resource type="Texture2D" uid="uid://bckkfegw1jp17" path="res://Material freeway/carros/coches (8).png" id="8_svoiv"]
+[ext_resource type="Texture2D" uid="uid://cg1upmaanci6" path="res://Material freeway/carros/coches (9).png" id="9_jc17g"]
+[ext_resource type="Texture2D" uid="uid://eyp5ntypbjel" path="res://Material freeway/carros/coches (10).png" id="10_7exwv"]
+[ext_resource type="Texture2D" uid="uid://cwrjk3djbpo4t" path="res://Material freeway/carros/coches (11).png" id="11_q5lu7"]
+[ext_resource type="Texture2D" uid="uid://bcaitnonxpas1" path="res://Material freeway/carros/coches (12).png" id="12_f7y0f"]
+[ext_resource type="Texture2D" uid="uid://c5isqnu0gd5np" path="res://Material freeway/carros/coches (13).png" id="13_x1buv"]
+[ext_resource type="Texture2D" uid="uid://d2kkamk3l8mu7" path="res://Material freeway/carros/coches (14).png" id="14_5lhx6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3g4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hj0pe")
+}],
+"loop": true,
+"name": &"carro01",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_545rc")
+}],
+"loop": true,
+"name": &"carro02",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xh5i4")
+}],
+"loop": true,
+"name": &"carro03",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_awi5y")
+}],
+"loop": true,
+"name": &"carro04",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ss4pm")
+}],
+"loop": true,
+"name": &"carro05",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_w17nw")
+}],
+"loop": true,
+"name": &"carro06",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"carro07",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_svoiv")
+}],
+"loop": true,
+"name": &"carro08",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jc17g")
+}],
+"loop": true,
+"name": &"carro09",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7exwv")
+}],
+"loop": true,
+"name": &"carro10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_q5lu7")
+}],
+"loop": true,
+"name": &"carro11",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_f7y0f")
+}],
+"loop": true,
+"name": &"carro12",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_x1buv")
+}],
+"loop": true,
+"name": &"carro13",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_5lhx6")
+}],
+"loop": true,
+"name": &"carro14",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17f7h"]
+size = Vector2(44, 30)
+
+[node name="Carros" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ow73l")
+
+[node name="Animacao" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_o3g4u")
+animation = &"carro01"
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_17f7h")
+
+[node name="Notificador" type="VisibleOnScreenNotifier2D" parent="."]
